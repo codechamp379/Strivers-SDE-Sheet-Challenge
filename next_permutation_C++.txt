@@ -1,0 +1,21 @@
+#include <bits/stdc++.h> 
+vector<int> nextPermutation(vector<int> &permutation, int n)
+{
+    //  Write your code here.
+    int brk_idx = n-2;
+    while(brk_idx>=0 && permutation[brk_idx] > permutation[brk_idx+1])
+    {
+        brk_idx--;
+    }
+    if(brk_idx>=0)
+    {
+    int swap_idx = n-1;
+    while (swap_idx > brk_idx && permutation[swap_idx] < permutation[brk_idx])
+    {
+      swap_idx--;
+    }
+    swap(permutation[brk_idx], permutation[swap_idx]);
+    }
+    sort(permutation.begin()+brk_idx+1,permutation.end());
+    return permutation;
+}
