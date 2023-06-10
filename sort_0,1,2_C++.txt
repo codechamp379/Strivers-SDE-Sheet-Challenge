@@ -1,0 +1,28 @@
+#include <bits/stdc++.h> 
+void sort012(int *arr, int n)
+{
+   //   Write your code here
+   //Algo: 0 to low-1 => 0 then low to mid-1 => 1 then high+1 to n-1 => 2 tphngame jo hai mid to high-1 
+   int low = 0;
+   int mid = 0;
+   int high = n-1;
+   while(mid <= high)
+   {
+      if(arr[mid]==0)
+      {
+         swap(arr[low],arr[mid]);
+         low++;
+         mid++;
+      }
+      else if(arr[mid]==1)
+      {
+         mid++;
+      }
+      else if(arr[mid]==2)
+      {
+         swap(arr[mid],arr[high]);
+         high--;
+      }
+
+   }
+}
