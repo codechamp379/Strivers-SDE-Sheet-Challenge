@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+vector<int> ninjaAndSortedArrays(vector<int>& arr1, vector<int>& arr2, int m, int n)
+{
+	// Write your code here.
+	//simple logic: compare last elements of the two array and assign the larger 
+	// one to arr1[k] everytime
+	int i=m-1;
+	int j=n-1;
+	int last_ele = m+n-1;
+	while(i>=0 && j>=0)
+	{
+		if(arr1[i] >= arr2[j])
+		{
+			arr1[last_ele] = arr1[i];
+			i--;
+			last_ele--;
+		}
+		else
+		{
+			arr1[last_ele] = arr2[j];
+			j--;
+			last_ele--;
+		}
+	}
+	//case when no element remains in arr1 but few left
+	// in arr2 so directly push in arr1
+	while(j>=0)
+	{
+		arr1[last_ele] = arr2[j];
+		j--;
+		last_ele--;
+	}
+	return arr1;
+
+}
